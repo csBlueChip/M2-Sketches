@@ -64,7 +64,7 @@ void  setup (void)
 }
 
 //---------------------------------------------------------------------------------------------------------------
-void  printFrame (canDir dir,  int canid,  CAN_FRAME &frame) 
+void  printFrame (canDir_t dir,  int canid,  CAN_FRAME &frame) 
 {
   char  s[128];
   int   idlen = frame.extended ? 8 : 3 ;
@@ -136,7 +136,7 @@ void  loop (void)
 {
   CAN_FRAME incoming;
 
-  while (Can0.available() > 0) {         // While packets are available on CAN0
+  while (Can0.available()) {             // While packets are available on CAN0
     if (Can0.read(incoming)) {           // Check packet has not magically disappeared
       printFrame(CDIR_IN, 0, incoming);  // Dump the packet to the console
       doReply(0, incoming);              // Consider replying to the packet
@@ -145,7 +145,7 @@ void  loop (void)
     }
   }
 
-  while (Can1.available() > 0) {         // While packets are available on CAN1
+  while (Can1.available()) {             // While packets are available on CAN1
     if (Can1.read(incoming)) {           // Check packet has not magically disappeared
       printFrame(CDIR_IN, 1, incoming);  // Dump the packet to the console
       doReply(1, incoming);              // Consider replying to the packet
