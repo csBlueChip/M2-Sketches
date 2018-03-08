@@ -1,6 +1,15 @@
 //---------------------------------------------------------------------------------------------------------------
 // Logs all traffic on CAN busses to SDCard
 // MIT license ("free" as in "free")
+//
+/*
+ToDo List:
+# If SD card not found, poll until it is
+# If file gets to 4GB, start a new file, with the NEXT number
+# If card is removed and replaced, start a file with the NEXT number
+# Log hexdump to serial console in Bin mode
+# Send error codes via LED(s) 
+*/
 
 //---------------------------------------------------------------------------------------------------------------
 // System libraries
